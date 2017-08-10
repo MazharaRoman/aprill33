@@ -4,17 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+
+import { MoviesService } from './services/movies.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    MoviesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
