@@ -1,5 +1,9 @@
 <div class="app-select">
-<select name="movies" id="movies_sel">
+<select
+        [(ngModel)]="option"
+        #select="ngModel"
+        name="movies"
+        id="movies_sel">
   <option value="default">Movie: </option>
   <option *ngFor="let movie of movies" value="movie">
     Movie: {{ movie.title }}

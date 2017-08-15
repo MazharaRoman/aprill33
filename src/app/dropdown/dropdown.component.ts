@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
+import { NgModel } from '@angular/forms';
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
@@ -7,8 +8,11 @@ import { MoviesService } from '../services/movies.service';
 })
 export class DropdownComponent implements OnInit {
 
+  @ViewChild('select') private selectModel: NgModel;
   private movies: Array<any>;
-  constructor(private moviesService: MoviesService) { }
+
+  constructor(private moviesService: MoviesService) {
+  }
 
   ngOnInit() {
     this.moviesService.get().subscribe(
@@ -18,8 +22,11 @@ export class DropdownComponent implements OnInit {
       },
       rej => {
         console.log(rej);
-      }
-    );
+      });
+  }
+
+  onSelectClear($event) {
+    this.selectModel.reset('default');
   }
 
 }
