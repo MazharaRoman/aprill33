@@ -9,5 +9,7 @@
     Movie: {{ movie.title }}
   </option>
 </select>
-  <button (click)="onSelectClear($event)" >Clear</button>
+  <button
+    (click)="onSelectClear($event)"
+    [disabled]="select.pristine">Clear</button>
 </div>

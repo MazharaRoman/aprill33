@@ -17,7 +17,6 @@ export class DropdownComponent implements OnInit {
   ngOnInit() {
     this.moviesService.get().subscribe(
       movies => {
-        console.log(movies);
         this.movies = movies;
       },
       rej => {
@@ -26,7 +25,9 @@ export class DropdownComponent implements OnInit {
   }
 
   onSelectClear($event) {
-    this.selectModel.reset('default');
+    if (this.selectModel.dirty) {
+      this.selectModel.reset('default');
+    }
   }
 
 }
