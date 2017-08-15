@@ -23,9 +23,7 @@ export class MoviesService {
 
     return this.http
       .get(this.popular_url, options)
-      .map( (data: any) => {
-        return data.json().results;
-      } )
+      .map( (data: any) => data.json().results )
       .catch( error => error.json() );
   }
 
